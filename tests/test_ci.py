@@ -1,3 +1,3 @@
 #väliaikainen testitiedosto
 def test_ci_toimii():
-    assert 1 + 1 == 2
+    assert 1 + 1 == 1
