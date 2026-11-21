@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.1.0
+        with:
+          python-version: "3.14"
+      - name: Install dependencies
+        run: uv sync --locked
+      - name: Run tests
+        #  palauttaa koodin 5 jos testejä ei löydy. kun testejä on poista || [ $? -eq 5 ]
+        run: uv run coverage run --branch -m pytest || [ $? -eq 5 ]
