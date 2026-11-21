@@ -19,4 +19,4 @@ jobs:
         run: uv sync --locked
       - name: Run tests
         #  palauttaa koodin 5 jos testejä ei löydy. kun testejä on poista || [ $? -eq 5 ]
-        run: uv run coverage run --branch -m pytest || [ $? -eq 5 ]
+        run: uv run coverage run --branch -m pytest
