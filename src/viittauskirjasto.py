@@ -4,6 +4,6 @@ class Viittauskirjasto:
     def __init__(self):
         self.viitteet = []
 
-    def lisaa_viite(self, teksti):
-        lahde_viittaus = Lahdeviittaus(teksti)
+    def lisaa_viite(self, teos, vuosiluku, kirjoittaja):
+        lahde_viittaus = Lahdeviittaus(teos, vuosiluku, kirjoittaja)
         self.viitteet.append(lahde_viittaus)

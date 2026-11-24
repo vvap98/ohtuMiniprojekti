@@ -8,8 +8,10 @@ class App:
         while True:
             komento = self.io.read("Anna komento (lisaa, nayta, lopeta): ")
             if komento == "lisaa":
-                teksti = self.io.read("Anna viitteen teksti: ")
-                self.viittaus_kirjasto.lisaa_viite(teksti)
+                teos = self.io.read("Anna teoksen nimi: ")
+                vuosiluku = self.io.read("Anna vuosiluku: ")
+                kirjoittaja = self.io.read("Anna kirjoittaja: ")
+                self.viittaus_kirjasto.lisaa_viite(teos, vuosiluku, kirjoittaja)
 
                 self.io.write("Viite lisätty.")
             elif komento == "nayta":
