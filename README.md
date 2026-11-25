@@ -11,3 +11,10 @@
 - [ ] Testit kirjoitettu ja ne menee läpi
 - [ ] Kaikki ryhmän jäsenet on testannut omilla koneillaan 
 - [ ] Koodi on pushattu ja github actions testit läpi
+
+
+##ASENNUSOHJE:
+
+  -Kloonaa projekti kansioon
+  -Aja projektin juurikansiossa "uv sync"
+  -Aja projektin juurikansiossa "uv run src/index.py"
