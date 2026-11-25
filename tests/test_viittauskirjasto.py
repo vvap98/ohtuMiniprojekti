@@ -1,10 +1,20 @@
 import unittest
+import os
+import tempfile
 from viittauskirjasto import Viittauskirjasto
 from lahdeviittaus import Lahdeviittaus
 
 class TestViittauskirjasto(unittest.TestCase):
     def setUp(self):
+        self.alkuperainen_kansio = os.getcwd()
+        self.tmp = tempfile.TemporaryDirectory()
+        os.chdir(self.tmp.name)
+        os.makedirs("data")
         self.kirjasto = Viittauskirjasto()
+
+    def tearDown(self):
+        os.chdir(self.alkuperainen_kansio)
+        self.tmp.cleanup()
 
     def test_uusi_kirjasto_on_tyhja(self):
         self.assertEqual(self.kirjasto.viitteet, [])

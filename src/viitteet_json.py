@@ -19,6 +19,9 @@ class JsonHandler:
             json.dump(data, f, ensure_ascii=False)
 
     def lataa(self):
-        with open("data/viitteet.json", 'r', encoding="utf-8") as f:
-            viite_data = json.load(f)
-        return viite_data
+        try:
+            with open("data/viitteet.json", 'r', encoding="utf-8") as f:
+                viite_data = json.load(f)
+                return viite_data
+        except FileNotFoundError:
+            return []
