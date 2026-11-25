@@ -4,6 +4,7 @@ from viitteet_json import JsonHandler
 class Viittauskirjasto:
     def __init__(self):
         self.viitteet = []
+        self.lataa()
 
     def lisaa_viite(self, teos, vuosiluku, kirjoittaja):
         lahde_viittaus = Lahdeviittaus(teos, vuosiluku, kirjoittaja)
@@ -15,7 +16,7 @@ class Viittauskirjasto:
         for lahde_viittaus in self.viitteet:
             if lahde_viittaus.teos == teos:
                 self.viitteet.remove(lahde_viittaus)
-                self.tallenna
+                self.tallenna()
                 poistettu = True
 
         return poistettu
@@ -26,4 +27,8 @@ class Viittauskirjasto:
 
     def lataa(self):
         json_kasittely = JsonHandler()
-        print(json_kasittely.lataa())
+        data = json_kasittely.lataa()
+        self.viitteet = [
+            Lahdeviittaus(d["teos"], d["vuosiluku"], d["kirjoittaja"])
+            for d in data
+        ]

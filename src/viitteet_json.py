@@ -15,10 +15,10 @@ class JsonHandler:
             }
             data.append(viite_data)
 
-        with open("data/viitteet.json", "w") as f:
+        with open("data/viitteet.json", "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False)
 
     def lataa(self):
-        with open("data/viitteet.json", 'r') as f:
+        with open("data/viitteet.json", 'r', encoding="utf-8") as f:
             viite_data = json.load(f)
         return viite_data
