@@ -12,9 +12,13 @@
 - [ ] Kaikki ryhmän jäsenet on testannut omilla koneillaan 
 - [ ] Koodi on pushattu ja github actions testit läpi
 
-
-##ASENNUSOHJE:
-
-  -Kloonaa projekti kansioon
-  -Aja projektin juurikansiossa "uv sync"
-  -Aja projektin juurikansiossa "uv run src/index.py"
+##ASENNUSOHJE
+1. Kloonaa projekti kansioon.
+2. Aja projektin juurikansiossa:
+   ```bash
+   uv sync
+   ```
+3. Käynnistä ohjelma:
+   ```bash
+   uv run src/index.py
+   ```
