@@ -11,3 +11,14 @@
 - [ ] Testit kirjoitettu ja ne menee läpi
 - [ ] Kaikki ryhmän jäsenet on testannut omilla koneillaan 
 - [ ] Koodi on pushattu ja github actions testit läpi
+
+##ASENNUSOHJE
+1. Kloonaa projekti kansioon.
+2. Aja projektin juurikansiossa:
+   ```bash
+   uv sync
+   ```
+3. Käynnistä ohjelma:
+   ```bash
+   uv run src/index.py
+   ```
