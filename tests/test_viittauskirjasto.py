@@ -34,3 +34,18 @@ class TestViittauskirjasto(unittest.TestCase):
         self.kirjasto.poista_viite("Teos")
 
         self.assertEqual(len(self.kirjasto.viitteet), 2)
+
+    def test_viitteet_sailyvat_uudelleenkaynnistyksen_yli(self):
+        self.kirjasto.lisaa_viite("Kalevala", 1835, "Lönnrot")
+
+        uusi_kirjasto = Viittauskirjasto()
+
+        self.assertEqual([v.teos for v in uusi_kirjasto.viitteet], ["Kalevala"])
+
+    def test_poisto_tallentuu_tiedostoon(self):
+        self.kirjasto.lisaa_viite("Kalevala", 1835, "Lönnrot")
+        self.kirjasto.poista_viite("Kalevala")
+
+        uusi_kirjasto = Viittauskirjasto()
+
+        self.assertEqual(uusi_kirjasto.viitteet, [])
